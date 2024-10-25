@@ -1,6 +1,6 @@
 # Airline Data Ingestion Pipeline
 
-##Overview
+## Overview
 
 An end to end data pipeline which automates the ingestion of daily flights data into Redshift data warehouse using various AWS Services. AWS Services used in this project are:
 
@@ -10,6 +10,9 @@ An end to end data pipeline which automates the ingestion of daily flights data 
 4. AWS Glue
 5. AWS Redshift
 6. AWS SNS
+
+
+## Architecture Diagram:
 
 
 ## AWS S3 Bucket Setup:
@@ -82,3 +85,7 @@ Enable EventBridge Notification inside the S3 bucket.
 
 1. Create a EventBridge Rule for S3 Event Notification
 2. Add proper email address to get the notifications
+
+## Conclusion:
+
+The end to end pipeline ensures that the process is automated to handle the daya to dday flight data and uses various AWS Services for high processing, efficient storage, and notifications.
