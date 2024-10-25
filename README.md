@@ -13,7 +13,7 @@ An end to end data pipeline which automates the ingestion of daily flights data 
 
 
 ## Architecture Diagram:
-
+!https://github.com/jenifa123/airline_data_ingestion/blob/main/airline_data_ingestion.png
 
 ## AWS S3 Bucket Setup:
 
