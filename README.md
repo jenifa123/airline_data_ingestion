@@ -21,6 +21,12 @@ Create a S3 bucket: airline-data-landing-zone
 Add two new folders inside the bucket: 1. daily_flights (stores the flight data based on the hive style partitioning) 2. dim (stores the airport data as it is SCD)
 Upload airports.csv file to the dim folder
 
+(![image](https://github.com/user-attachments/assets/3343d856-11b1-4a8a-a232-e69778ff4f47)
+
+![image](https://github.com/user-attachments/assets/70ecbbba-518b-47ac-a543-05c126d1dbdd)
+
+![image](https://github.com/user-attachments/assets/6d675f91-6657-4985-9bdf-29f5b463691e)
+
 
 ## AWS Redshift Data Setup:
 
@@ -40,6 +46,9 @@ Add Inbound Rule for Redshift with a port of 5439 inside the security group atta
 Attach the proper Role and test the connection.
 Create a datamart named as airline_data_mart inside the databases in Glue
 
+![image](https://github.com/user-attachments/assets/34df7c16-1ff2-4e26-be56-cee20d6ed5f3)
+
+
 
 ### Creating Crawlers
 
@@ -47,6 +56,8 @@ Create 3 crawlers:
 1. airline_dim_crawler  : To crawl the dimension table in Redshift and load the metadata in dev_airlines_airports_dim in tables in GLUE
 2. airline_fact_crawler : To crawl the fact table in Redshift and load the metadata in dev_airlines_daily_flights_fact in tables in GLUE
 3. flights_data_crawler : To crawl the csv file present in S3 and load the data in raw_daily_flights in tables in GLUE
+
+![image](https://github.com/user-attachments/assets/e2bbad18-ceab-4b87-9bc8-254f251e32c3)
 
 
 
@@ -60,6 +71,9 @@ Create 3 crawlers:
 6. Add target to load the data from all the above steps into Redshift dev_airlines_daily_flights_fact table
 7. Add the job parameter named as --JOB_NAME as key and Visual ETL file name as value in the Glue 
 8. Enable Job Bookmarking.
+
+ ![image](https://github.com/user-attachments/assets/334c832f-a202-4ded-afb8-8c6b2f30f3e1)
+
 
 ### Process Orchestration:
 
@@ -81,10 +95,16 @@ Enable EventBridge Notification inside the S3 bucket.
 5. If successfully completed then trigger SNS to send a success message.
 6. If failed then trigger SNS to send a failure message
 
+![image](https://github.com/user-attachments/assets/80a02338-36b5-41a5-9477-7bdc2c446ab5)
+
+
 ### SNS Configuration:
 
 1. Create a EventBridge Rule for S3 Event Notification
 2. Add proper email address to get the notifications
+
+![image](https://github.com/user-attachments/assets/94b75a43-fe7b-4004-81fa-d26929be6e51)
+
 
 ## Conclusion:
 
